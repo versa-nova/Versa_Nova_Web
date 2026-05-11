@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Versa Nova | Social-First Storytelling Platform - Publishing, Gaming & Creator Economy</title>
+    <meta name="title" content="Versa Nova | Social-First Storytelling Platform - Publishing, Gaming & Creator Economy">
+    <meta name="description" content="Versa Nova Media & Entertainment - Building innovative platforms at the intersection of publishing, gaming, and creator economy. Discover Booksy Boutique and Project Unite-7.">
+    <meta name="keywords" content="Versa Nova, social storytelling, publishing platform, gaming, creator economy, Booksy Boutique, Berlin startup, media entertainment, interactive stories">
+    <meta name="author" content="Versa Nova Media & Entertainment">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://versanova.de/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://versanova.de/">
+    <meta property="og:title" content="Versa Nova | Social-First Storytelling Platform">
+    <meta property="og:description" content="Building innovative platforms at the intersection of publishing, gaming, and creator economy. Discover our projects: Booksy Boutique and Project Unite-7.">
+    <meta property="og:image" content="https://versanova.de/assets/VN-logo-navbar.png">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://versanova.de/">
+    <meta property="twitter:title" content="Versa Nova | Social-First Storytelling Platform">
+    <meta property="twitter:description" content="Building innovative platforms at the intersection of publishing, gaming, and creator economy.">
+    <meta property="twitter:image" content="https://versanova.de/assets/VN-logo-navbar.png">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="DE-BE">
+    <meta name="geo.placename" content="Berlin">
+    <meta name="geo.position" content="52.520008;13.404954">
+    <meta name="ICBM" content="52.520008, 13.404954">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/VN-logo-navbar.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="main.css">
+    
+    <!-- Structured Data / Schema.org for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Versa Nova Media & Entertainment",
+      "alternateName": "Versa Nova",
+      "url": "https://versanova.de",
+      "logo": "https://versanova.de/assets/VN-logo-navbar.png",
+      "description": "Media and technology company focused on social-first storytelling, building products at the intersection of publishing, gaming, and creator economy.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kolonnenstr. 8",
+        "addressLocality": "Berlin",
+        "postalCode": "10827",
+        "addressCountry": "DE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+49-30-12348760",
+        "contactType": "customer service",
+        "email": "info@versanova.de",
+        "availableLanguage": ["German", "English"]
+      },
+      "sameAs": [
+        "https://github.com/versanova"
+      ],
+      "foundingDate": "2026",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Berlin",
+          "addressCountry": "DE"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="assets/VN_lOGO_ALT.png" alt="Versa Nova Logo" class="navbar-logo">
+                <div class="brand-text">
+                    <div class="brand-name">VERSA NOVA</div>
+                    <div class="brand-tagline">media & entertainment</div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-translate="nav_home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-translate="nav_about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects" data-translate="nav_projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#partners" data-translate="nav_partners">Partners & Investors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-translate="nav_contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-custom ms-lg-3" href="#contact" data-translate="nav_cta">Get Started</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-translate"></i> <span id="currentLang">DE</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" width="20" alt="English"> English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('de')"><img src="https://flagcdn.com/w20/de.png" width="20" alt="Deutsch"> Deutsch</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background-slider">
+            <div class="hero-bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop');"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2073&auto=format&fit=crop');"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1 class="hero-title" data-aos="fade-up">
+                            <span class="hero-text-animated"></span>
+                        </h1>
+                        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100" data-translate="hero_subtitle">
+                            Empowering creators and connecting audiences through innovative media experiences at the intersection of publishing, gaming, and social interaction.
+                        </p>
+                        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
+                            <a href="#projects" class="btn btn-primary btn-lg me-3">
+                                <span data-translate="hero_btn_projects">View Projects</span> <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg" data-translate="hero_btn_contact">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="300">
+                    <div class="hero-image">
+                        <div class="floating-card">
+                            <i class="bi bi-book-half"></i>
+                            <h3 data-translate="hero_floating_card">Storytelling</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about"><i class="bi bi-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-image">
+                        <div class="about-card-1"></div>
+                        <div class="about-card-2"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-content">
+                        <h2 class="section-title" data-translate="about_title">About Versa Nova</h2>
+                        <p class="lead" data-translate="about_lead">Versa Nova Media & Entertainment is a media and technology company focused on social-first storytelling.</p>
+                        <p data-translate="about_desc">We operate at the intersection of publishing, gaming, and creator economy—building products that make stories easier to discover, share, and experience.</p>
+                        
+                        <div class="startup-info mt-5">
+                            <div class="startup-badge mb-4" data-aos="fade-up">
+                                <i class="bi bi-rocket-takeoff"></i>
+                                <span data-translate="about_startup_badge">Early Stage Startup</span>
+                            </div>
+                            
+                            <h4 class="mb-4" data-translate="about_startup_title">Our Journey Begins</h4>
+                            <p class="startup-description" data-translate="about_startup_text">We're an ambitious startup at the beginning of an exciting journey. Currently developing two groundbreaking projects that will redefine how stories are created, shared, and experienced.</p>
+                            
+                            <div class="projects-preview mt-4">
+                                <a href="booksy-boutique.html" class="text-decoration-none" style="color: inherit;">
+                                    <div class="preview-card" data-aos="fade-up" data-aos-delay="100" style="cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <div class="preview-icon booksy-icon">
+                                            <i class="bi bi-book"></i>
+                                        </div>
+                                        <div class="preview-content">
+                                            <h5 data-translate="about_project1_title">Booksy Boutique</h5>
+                                            <span class="badge-mvp-ready" data-translate="about_project1_status">MVP Ready</span>
+                                            <p data-translate="about_project1_desc">Minimum Viable Product Complete</p>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar progress-bar-success" style="width: 75%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="unite-7.html" class="project-preview-link">
+                                <div class="preview-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="preview-icon unite-icon">
+                                        <i class="bi bi-controller"></i>
+                                    </div>
+                                    <div class="preview-content">
+                                        <h5 data-translate="about_project2_title">Project Unite-7</h5>
+                                        <span class="badge-demo-prep" data-translate="about_project2_status">Demo in Preparation</span>
+                                        <p data-translate="about_project2_desc">Building Interactive Demo</p>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-bar progress-bar-blue" style="width: 60%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="portfolio-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up" data-translate="projects_title">Our Projects</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-translate="projects_subtitle">
+                    Building the future of social-first storytelling
+                </p>
+            </div>
+            
+            <!-- Booksy Boutique Project -->
+            <div class="project-detail mb-5" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <a href="booksy-boutique.html">
+                            <div class="project-image-wrapper" style="cursor: pointer;">
+                                <img src="assets/BooksyBoutique.png" alt="Booksy Boutique" class="project-image" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <div class="project-badge badge-mvp-ready">
+                                    <i class="bi bi-check-circle-fill"></i> <span data-translate="project1_status">MVP Ready</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="project-content">
+                            <a href="booksy-boutique.html" class="text-decoration-none" style="color: inherit;">
+                                <h3 class="project-title" style="cursor: pointer; transition: color 0.3s ease;" onmouseover="this.style.color='#667eea'" onmouseout="this.style.color=''">
+                                    <i class="bi bi-book-fill me-2"></i>
+                                    <span data-translate="project1_title">Booksy Boutique</span>
+                                    <i class="bi bi-arrow-right-circle ms-2"></i>
+                                </h3>
+                            </a>
+                            <h4 class="project-subtitle" data-translate="project1_category">Social commerce for books</h4>
+                            <p class="project-description" data-translate="project1_desc">
+                                Booksy Boutique is a social-media-driven book discovery and sales platform. It connects readers, influencers, and publishers in one place—making it easy to showcase books, track engagement, and turn attention into sales.
+                            </p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="bi bi-tag-fill"></i>
+                                    <span data-translate="project1_feature1">Social Commerce</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="bi bi-people-fill"></i>
+                                    <span data-translate="project1_feature2">Publishing Platform</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                    <span data-translate="project1_feature3">Creator Economy</span>
+                                </div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted" data-translate="project1_progress">Development Progress</span>
+                                    <span class="text-success fw-bold">75%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar progress-bar-success" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="project-divider my-5" data-aos="fade">
+
+            <!-- Project Unite-7 -->
+            <div class="project-detail" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                        <a href="unite-7.html" class="project-link">
+                        <div class="project-image-wrapper">
+                            <img src="assets/ProjectUnite-7.png" alt="Project Unite-7" class="project-image">
+                            <div class="project-badge badge-demo-prep">
+                                <i class="bi bi-gear-fill"></i> <span data-translate="project2_status">Demo in Preparation</span>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="project-content">
+                            <a href="unite-7.html" class="project-link">
+                            <h3 class="project-title">
+                                <i class="bi bi-controller me-2"></i>
+                                <span data-translate="project2_title">Project Unite-7</span>
+                            </h3>
+                            </a>
+                            <h4 class="project-subtitle" data-translate="project2_category">Mobile 2.5D game</h4>
+                            <p class="project-description" data-translate="project2_desc">
+                                Booksy Boutique is a social-media-driven book discovery and sales platform. It connects readers, influencers, and publishers in one place—making it easy to showcase books, track engagement, and turn attention into sales.
+                            </p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="bi bi-phone-fill"></i>
+                                    <span>Mobile Gaming</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="bi bi-box-fill"></i>
+                                    <span>2.5D Graphics</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                    <span>Interactive Story</span>
+                                </div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Development Progress</span>
+                                    <span class="text-primary fw-bold">60%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar progress-bar-blue" style="width: 60%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners & Investors Section -->
+    <section id="partners" class="partners-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up" data-translate="partners_title">Seeking Partners & Investors</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-translate="partners_subtitle">
+                    Join us in building the future of social-first storytelling
+                </p>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <div class="seeking-intro">
+                        <div class="startup-badge-large mb-4">
+                            <i class="bi bi-rocket-takeoff me-2"></i>
+                            <span data-translate="partners_badge">Open for Investment & Partnerships</span>
+                        </div>
+                        <p class="lead mb-4" data-translate="partners_intro">
+                            We're an early-stage startup with two innovative projects in development. We're actively seeking strategic partners and investors who share our vision of revolutionizing how stories are created, shared, and monetized.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="opportunity-card">
+                        <div class="opportunity-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4 data-translate="partners_card1_title">Strategic Partners</h4>
+                        <p data-translate="partners_card1_desc">Collaborate with us to expand reach, leverage synergies, and create mutual value in the creator economy space.</p>
+                        <ul class="opportunity-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card1_item1">Technology Partners</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card1_item2">Distribution Partners</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card1_item3">Content Partners</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="opportunity-card featured">
+                        <div class="featured-badge" data-translate="partners_featured_badge">Priority</div>
+                        <div class="opportunity-icon">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <h4 data-translate="partners_card2_title">Angel Investors</h4>
+                        <p data-translate="partners_card2_desc">Invest in our vision and be part of an innovative startup at the intersection of publishing, gaming, and social media.</p>
+                        <ul class="opportunity-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card2_item1">Seed Funding Round</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card2_item2">Equity Opportunities</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card2_item3">Advisory Roles</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="opportunity-card">
+                        <div class="opportunity-icon">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <h4 data-translate="partners_card3_title">Financial Support</h4>
+                        <p data-translate="partners_card3_desc">We're exploring various funding options including grants, loans, and accelerator programs to fuel our growth.</p>
+                        <ul class="opportunity-list">
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card3_item1">Business Loans</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card3_item2">Grant Programs</span></li>
+                            <li><i class="bi bi-check-circle-fill"></i> <span data-translate="partners_card3_item3">Accelerator Funding</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="investment-highlights">
+                        <h3 class="mb-4" data-translate="partners_why_title">Why Partner With Us?</h3>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="bi bi-lightbulb-fill"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h5 data-translate="partners_why_item1_title">Innovative Vision</h5>
+                                <p data-translate="partners_why_item1_desc">Unique positioning at the intersection of books, games, and social commerce</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h5 data-translate="partners_why_item2_title">Growing Market</h5>
+                                <p data-translate="partners_why_item2_desc">Tapping into the booming creator economy and digital entertainment sectors</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="bi bi-award-fill"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h5 data-translate="partners_why_item3_title">MVP Ready</h5>
+                                <p data-translate="partners_why_item3_desc">First product approaching launch with strong early traction potential</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="cta-box">
+                        <h3 class="mb-3" data-translate="partners_cta_title">Interested in Our Journey?</h3>
+                        <p class="mb-4" data-translate="partners_cta_desc">Let's discuss how we can grow together. We're open to conversations about partnerships, investments, and collaboration opportunities.</p>
+                        <div class="cta-buttons">
+                            <a href="#contact" class="btn btn-primary btn-lg me-3 mb-3">
+                                <i class="bi bi-envelope-fill me-2"></i>
+                                <span data-translate="partners_cta_btn1">Contact Us</span>
+                            </a>
+                            <a href="#projects" class="btn btn-outline-light btn-lg mb-3">
+                                <i class="bi bi-folder-fill me-2"></i>
+                                <span data-translate="partners_cta_btn2">View Our Projects</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up" data-translate="contact_title">Get In Touch</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-translate="contact_subtitle">
+                    Let's discuss partnership and investment opportunities
+                </p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <h4 data-translate="contact_location">Location</h4>
+                            <p>Kolonnenstr. 8<br>10827 Berlin, Germany</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <h4 data-translate="contact_email">Email</h4>
+                            <p>info@versanova.de</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone-fill"></i>
+                            <h4 data-translate="contact_phone">Phone</h4>
+                            <p>+49 (0) 30 12348760</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="contactName" name="name" data-translate-placeholder="contact_form_name" placeholder="Your Name *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" id="contactEmail" name="email" data-translate-placeholder="contact_form_email" placeholder="Your Email *" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="contactSubject" name="subject" data-translate-placeholder="contact_form_subject" placeholder="Subject *" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" id="contactMessage" name="message" data-translate-placeholder="contact_form_message" placeholder="Message" required minlength="50"></textarea>
+                                <small class="form-text" style="color: rgba(255, 255, 255, 0.6); font-size: 0.85rem;">
+                                    <span id="charCount">0</span>/50 characters minimum
+                                </small>
+                            </div>
+                            <div class="col-12">
+                                <div id="formStatus" style="margin-bottom: 15px;"></div>
+                                <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                    <span data-translate="contact_form_btn">Send Message</span> <i class="bi bi-send ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="assets/VN_lOGO_ALT.png" alt="Versa Nova Logo" class="footer-logo-img">
+                        <div class="brand-text">
+                            <div class="brand-name">VERSA NOVA</div>
+                            <div class="brand-tagline">media & entertainment</div>
+                        </div>
+                    </div>
+                    <p data-translate="footer_desc">A media and technology company focused on social-first storytelling. Building products at the intersection of publishing, gaming, and creator economy.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-translate="footer_quick_links">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-translate="nav_home">Home</a></li>
+                        <li><a href="#about" data-translate="nav_about">About</a></li>
+                        <li><a href="#projects" data-translate="nav_projects">Projects</a></li>
+                        <li><a href="#partners" data-translate="nav_partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-translate="footer_company">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#contact" data-translate="footer_contact_us">Contact Us</a></li>
+                        <li><a href="#" data-translate="footer_careers">Careers</a></li>
+                        <li><a href="#" data-translate="footer_news">News</a></li>
+                        <li><a href="#" data-translate="footer_press">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 data-translate="footer_newsletter">Newsletter</h5>
+                    <p data-translate="footer_newsletter_desc">Subscribe to get the latest updates</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" data-translate-placeholder="footer_newsletter_placeholder" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0" data-translate="footer_copyright">&copy; 2026 Versa Nova. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="impressum.html" data-translate="footer_impressum">Impressum</a> | <a href="privacy.html" data-translate="footer_privacy">Privacy Policy</a> | <a href="#" id="openCookieSettings" data-translate="footer_cookies">Cookie Settings</a> | <a href="terms.html" data-translate="footer_terms">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4 data-translate="cookie_banner_title">We use cookies</h4>
+                <p data-translate="cookie_banner_text">We use cookies and similar technologies to improve your experience, analyze site usage, and assist with our marketing efforts. You can manage your preferences at any time.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-banner-btn cookie-banner-btn-primary" id="acceptAllBanner">
+                    <span data-translate="cookie_banner_accept">Accept All</span>
+                </button>
+                <button class="cookie-banner-btn cookie-banner-btn-secondary" id="rejectAllBanner">
+                    <span data-translate="cookie_banner_reject">Reject Non-Essential</span>
+                </button>
+                <button class="cookie-banner-btn cookie-banner-btn-outline" id="cookieSettingsBanner">
+                    <span data-translate="cookie_banner_settings">Cookie Settings</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h2 data-translate="cookie_title">Cookie Settings</h2>
+                <button class="cookie-close" id="closeCookieModal">&times;</button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- Overview -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_overview">Overview</h3>
+                    <p data-translate="cookie_overview_text">This site uses cookies and similar technologies to ensure basic functionality, improve your experience, and provide analytics and marketing features. Use the controls below to manage which categories you allow.</p>
+                </section>
+
+                <!-- Cookie Categories -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_categories">Cookie categories</h3>
+                    
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_essential">Essential</h4>
+                                <p data-translate="cookie_essential_desc">Required for site security, navigation, and basic functions. These cookies cannot be disabled.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieEssential" checked disabled>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_preferences">Preferences</h4>
+                                <p data-translate="cookie_preferences_desc">Remember language, display preferences, and other choices to improve your experience.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookiePreferences">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_analytics">Analytics</h4>
+                                <p data-translate="cookie_analytics_desc">Collect anonymous usage data to help us understand how the site is used and to improve performance.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieAnalytics">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_marketing">Marketing</h4>
+                                <p data-translate="cookie_marketing_desc">Enable personalized content, social media features, and advertising. These are only active with your consent.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieMarketing">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Your Choices -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_choices">Your choices</h3>
+                    <div class="cookie-buttons">
+                        <button class="cookie-btn cookie-btn-primary" id="acceptAllCookies">
+                            <span data-translate="cookie_accept_all">Accept all</span>
+                        </button>
+                        <button class="cookie-btn cookie-btn-secondary" id="rejectAllCookies">
+                            <span data-translate="cookie_reject_all">Reject all non‑essential</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- How to Change or Withdraw Consent -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_change">How to change or withdraw consent</h3>
+                    <p data-translate="cookie_change_text">You can change your cookie settings at any time by clicking the Cookie Settings link in the footer or via your browser settings to block or delete cookies. Withdrawing consent will not affect processing already carried out while consent was valid.</p>
+                </section>
+
+                <!-- Third Parties -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_third_parties">Third parties and transfers</h3>
+                    <p data-translate="cookie_third_parties_text">Some cookies are set by third parties (analytics, social platforms, advertising partners). Where data is transferred outside the EEA, we rely on appropriate safeguards such as standard contractual clauses or adequacy decisions.</p>
+                </section>
+
+                <!-- Contact -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_contact">Contact</h3>
+                    <p data-translate="cookie_contact_text">For questions about cookies or data processing contact: info@versanova.de.</p>
+                </section>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="cookie-btn cookie-btn-primary" id="saveCookiePreferences">
+                    <span data-translate="cookie_save">Save Preferences</span>
+                </button>
+                <button class="cookie-btn cookie-btn-secondary" id="closeCookieModalFooter">
+                    <span data-translate="cookie_close">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Custom JS (load before translations to define heroTexts) -->
+    <script src="main.js"></script>
+    <!-- Translations (load after main.js to update heroTexts) -->
+    <script src="translations.js"></script>
+</body>
+</html>

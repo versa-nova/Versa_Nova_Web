@@ -1,0 +1,14 @@
+# Robots.txt for Versa Nova Media & Entertainment
+# https://versanova.de
+
+User-agent: *
+Allow: /
+
+# Disallow admin or internal directories (if any in future)
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://versanova.de/sitemap.xml
+
+# Crawl-delay (optional, to be polite to servers)
+# Crawl-delay: 10

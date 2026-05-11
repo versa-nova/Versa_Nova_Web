@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Project Unite-7 | Versa Nova</title>
+    <meta name="title" content="Project Unite-7 - Cyberpunk 2D Platformer Game">
+    <meta name="description" content="A cyberpunk-themed 2D platformer game built with Godot 4.4, featuring multiple playable characters, unique abilities, and mobile-optimized controls.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://versanova.de/unite-7.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://versanova.de/unite-7.html">
+    <meta property="og:title" content="Project Unite-7 - Cyberpunk 2D Platformer">
+    <meta property="og:description" content="A cyberpunk-themed 2D platformer with multiple characters, unique abilities, and mobile-optimized controls.">
+    <meta property="og:image" content="https://versanova.de/assets/PU7/PU7-logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/VN-logo-navbar.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="main.css">
+    
+    <style>
+        .project-hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0a0a1f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+            animation: glow 4s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/PU7/tilemap/factory_TM03.png') center/cover;
+            opacity: 0.1;
+            filter: blur(3px);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+        
+        .game-logo {
+            max-width: 400px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+        }
+        
+        .feature-card {
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+        
+        .character-card {
+            background: linear-gradient(135deg, #1a1a3e 0%, #0f0f23 100%);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .character-card:hover {
+            border-color: #00ffff;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        .character-card img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 15px rgba(0, 255, 255, 0.3));
+        }
+        
+        .character-name {
+            color: #00ffff;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 5px;
+            background: linear-gradient(135deg, #00ffff 0%, #0080ff 100%);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .screenshot-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot-item:hover {
+            transform: scale(1.05);
+            border-color: #00ffff;
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+        }
+        
+        .enemy-card {
+            background: rgba(15, 15, 35, 0.9);
+            border: 2px solid rgba(255, 0, 100, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .enemy-card:hover {
+            border-color: #ff0066;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 100, 0.3);
+        }
+        
+        .enemy-card img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .neon-text {
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/VN_lOGO_ALT.png" alt="Versa Nova Logo" class="navbar-logo">
+                <div class="brand-text">
+                    <div class="brand-name">VERSA NOVA</div>
+                    <div class="brand-tagline">media & entertainment</div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-translate="nav_home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about" data-translate="nav_about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects" data-translate="nav_projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#partners" data-translate="nav_partners">Partners & Investors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact" data-translate="nav_contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-custom ms-lg-3" href="index.html#contact" data-translate="nav_cta">Get Started</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-translate"></i> <span id="currentLang">DE</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" width="20" alt="English"> English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('de')"><img src="https://flagcdn.com/w20/de.png" width="20" alt="Deutsch"> Deutsch</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="container">
+                <img src="assets/PU7/PU7-logo.png" alt="Project Unite-7 Logo" class="game-logo" data-aos="zoom-in">
+                <p class="lead fs-3 mb-4" data-aos="fade-up" data-aos-delay="100" data-translate="pu7_hero_subtitle">Cyberpunk 2D Platformer Game</p>
+                <p class="fs-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-translate="pu7_hero_tech">Built with Godot 4.4 Engine</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <span class="badge bg-primary fs-6 px-4 py-2 me-2" data-translate="pu7_badge_demo">Demo in Preparation</span>
+                    <span class="badge bg-success fs-6 px-4 py-2" data-translate="pu7_badge_mobile">Mobile & Desktop</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-5" style="background: #0a0a1f; color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold mb-4">
+                        <span class="neon-text" data-translate="pu7_what_title">
+                            What is Project Unite-7?
+                        </span>
+                    </h2>
+                    <p class="lead mb-4" data-translate="pu7_what_lead">
+                        A cyberpunk-themed 2D platformer game featuring multiple playable characters, dynamic combat, and mobile-optimized controls.
+                    </p>
+                    <p class="mb-3" data-translate="pu7_what_desc1">
+                        Switch between 4 unique characters on the fly, each with their own abilities. Break walls with Rex, hack doors with Astra09, and fight through waves of intelligent AI enemies.
+                    </p>
+                    <p class="mb-4" data-translate="pu7_what_desc2">
+                        Built with Godot 4.4 Engine with full mobile support including virtual joystick controls, the game combines classic platformer gameplay with modern cyberpunk aesthetics and innovative mechanics.
+                    </p>
+                    <p class="mb-0">
+                        <strong data-translate="pu7_status">Status:</strong> <span data-translate="pu7_badge_demo">Demo in Preparation</span> | <strong data-translate="pu7_platform">Platform:</strong> Mobile & Desktop
+                    </p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="assets/PU7/tilemap/A continuation of a .png" alt="Project Unite-7 Gameplay" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid rgba(0, 255, 255, 0.3);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="py-5" style="background: linear-gradient(180deg, #0a0a1f 0%, #1a1a3e 100%);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-white mb-2" data-aos="fade-up">
+                <span class="neon-text" data-translate="pu7_characters_title">🎭 Playable Characters</span>
+            </h2>
+            <p class="text-center text-white-50 mb-5" data-aos="fade-up" data-translate="pu7_characters_subtitle">Switch between 4 unique heroes with special abilities</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="character-card">
+                        <img src="assets/PU7/Characters/Astra-character01.png" alt="Astra09">
+                        <div class="character-name" data-translate="pu7_char1_name">Astra09</div>
+                        <p class="text-white-50 small" data-translate="pu7_char1_desc">Well-rounded character with hacking abilities. Only one who can unlock doors.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="character-card">
+                        <img src="assets/PU7/Characters/rex-Character2.png" alt="Rex">
+                        <div class="character-name" data-translate="pu7_char2_name">Rex</div>
+                        <p class="text-white-50 small" data-translate="pu7_char2_desc">Heavy character with wall-breaking ability. Destroys obstacles with 3 hits.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="character-card">
+                        <img src="assets/PU7/Characters/2D Kira mobile .png" alt="Kira">
+                        <div class="character-name" data-translate="pu7_char3_name">Kira</div>
+                        <p class="text-white-50 small" data-translate="pu7_char3_desc">Agile character with enhanced mobility and speed.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="character-card">
+                        <img src="assets/PU7/Characters/2D cyberpunk mobile .png" alt="Nyxs">
+                        <div class="character-name" data-translate="pu7_char4_name">Nyxs</div>
+                        <p class="text-white-50 small" data-translate="pu7_char4_desc">Mysterious character with unique combat style.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" style="background: #0a0a1f;">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">
+                <span class="neon-text" data-translate="pu7_features_title">⚡ Game Features</span>
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4 class="mb-3 neon-text" data-translate="pu7_feature1_title">Character Switching</h4>
+                        <p data-translate="pu7_feature1_desc">Switch between 4 unique characters instantly via portrait selection system</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-crosshair"></i>
+                        </div>
+                        <h4 class="mb-3 neon-text" data-translate="pu7_feature2_title">Dynamic Combat</h4>
+                        <p data-translate="pu7_feature2_desc">Fast-paced shooting mechanics with projectiles and visual feedback</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h4 class="mb-3 neon-text" data-translate="pu7_feature3_title">Mobile Optimized</h4>
+                        <p data-translate="pu7_feature3_desc">Virtual joystick controls and touch buttons for seamless mobile gameplay</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-puzzle"></i>
+                        </div>
+                        <h4 class="mb-3 neon-text" data-translate="pu7_feature4_title">Puzzle Mechanics</h4>
+                        <p data-translate="pu7_feature4_desc">Wire puzzle mini-game to hack doors - connect colored wires to matching sockets</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-bricks"></i>
+                        </div>
+                        <h4 class="mb-3 neon-text" data-translate="pu7_feature5_title">Breakable Walls</h4>
+                        <p data-translate="pu7_feature5_desc">Rex can destroy obstacles with his special ability after 3 hits</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h4 class="mb-3 neon-text" data-translate="pu7_feature6_title">Smart AI Enemies</h4>
+                        <p data-translate="pu7_feature6_desc">Intelligent enemy behavior with patrol, chase, and attack patterns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enemies Section -->
+    <section class="py-5" style="background: linear-gradient(180deg, #0a0a1f 0%, #1a1a3e 100%);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-white mb-5" data-aos="fade-up">
+                <span style="color: #ff0066; text-shadow: 0 0 10px rgba(255, 0, 100, 0.8);" data-translate="pu7_enemies_title">💀 Enemies</span>
+            </h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="enemy-card text-white">
+                        <img src="assets/PU7/Enemies/Enemy-cyberpunk-style skel.png" alt="NeuroBone">
+                        <h5 style="color: #ff0066;" data-translate="pu7_enemy1_name">NeuroBone</h5>
+                        <p class="small text-white-50" data-translate="pu7_enemy1_desc">Cyberpunk skeleton enemy with intelligent patrol and chase AI</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="enemy-card text-white">
+                        <img src="assets/PU7/Enemies/Battle-tank.png" alt="Battle Tank">
+                        <h5 style="color: #ff0066;" data-translate="pu7_enemy2_name">Battle Tank</h5>
+                        <p class="small text-white-50" data-translate="pu7_enemy2_desc">Heavy armored enemy with powerful attacks</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="enemy-card text-white">
+                        <img src="assets/PU7/Enemies/sakoo.png" alt="Sakoo">
+                        <h5 style="color: #ff0066;" data-translate="pu7_enemy3_name">Sakoo</h5>
+                        <p class="small text-white-50" data-translate="pu7_enemy3_desc">Fast moving enemy with aggressive behavior</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls Section -->
+    <section class="py-5" style="background: #0a0a1f;">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">
+                <span class="neon-text" data-translate="pu7_controls_title">🎮 Controls</span>
+            </h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h4 class="neon-text mb-3" data-translate="pu7_controls_desktop">Desktop Controls</h4>
+                    <ul class="text-white list-unstyled">
+                        <li class="mb-2"><i class="bi bi-arrow-up-square text-info me-2"></i><strong data-translate="pu7_ctrl_movement">Arrow Keys / WASD:</strong> <span data-translate="pu7_ctrl_movement_desc">Movement</span></li>
+                        <li class="mb-2"><i class="bi bi-square text-info me-2"></i><strong data-translate="pu7_ctrl_jump">Space:</strong> <span data-translate="pu7_ctrl_jump_desc">Jump / Double Jump</span></li>
+                        <li class="mb-2"><i class="bi bi-mouse text-info me-2"></i><strong data-translate="pu7_ctrl_shoot">Mouse Click:</strong> <span data-translate="pu7_ctrl_shoot_desc">Shoot</span></li>
+                        <li class="mb-2"><i class="bi bi-keyboard text-info me-2"></i><strong data-translate="pu7_ctrl_ability">E:</strong> <span data-translate="pu7_ctrl_ability_desc">Use Ability / Hack Door</span></li>
+                        <li class="mb-2"><i class="bi bi-pause text-info me-2"></i><strong data-translate="pu7_ctrl_pause">ESC / Menu:</strong> <span data-translate="pu7_ctrl_pause_desc">Pause Game</span></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h4 class="neon-text mb-3" data-translate="pu7_controls_mobile">Mobile Controls</h4>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="text-center p-3" style="background: rgba(0, 255, 255, 0.1); border-radius: 10px;">
+                                <img src="assets/PU7/virtual-joystick/Jump.png" alt="Jump" style="width: 60px; height: 60px; filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));">
+                                <p class="text-white small mt-2 mb-0" data-translate="pu7_ctrl_mobile_jump">Jump</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3" style="background: rgba(0, 255, 255, 0.1); border-radius: 10px;">
+                                <img src="assets/PU7/virtual-joystick/shoot.png" alt="Shoot" style="width: 60px; height: 60px; filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));">
+                                <p class="text-white small mt-2 mb-0" data-translate="pu7_ctrl_mobile_shoot">Shoot</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3" style="background: rgba(0, 255, 255, 0.1); border-radius: 10px;">
+                                <img src="assets/PU7/virtual-joystick/ability.png" alt="Ability" style="width: 60px; height: 60px; filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));">
+                                <p class="text-white small mt-2 mb-0" data-translate="pu7_ctrl_mobile_ability">Ability</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3" style="background: rgba(0, 255, 255, 0.1); border-radius: 10px;">
+                                <img src="assets/PU7/virtual-joystick/rage.png" alt="Special" style="width: 60px; height: 60px; filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));">
+                                <p class="text-white small mt-2 mb-0" data-translate="pu7_ctrl_mobile_special">Special</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="py-5" style="background: linear-gradient(180deg, #0a0a1f 0%, #1a1a3e 100%);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up">
+                <span class="neon-text" data-translate="pu7_tech_title">🛠️ Tech Stack</span>
+            </h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="zoom-in">
+                    <div class="mb-4">
+                        <span class="tech-badge">Godot Engine 4.4</span>
+                        <span class="tech-badge">GDScript</span>
+                        <span class="tech-badge">Vulkan Renderer</span>
+                        <span class="tech-badge">2D Physics</span>
+                        <span class="tech-badge">Mobile Forward+</span>
+                        <span class="tech-badge">Android Export</span>
+                        <span class="tech-badge">Virtual Joystick</span>
+                        <span class="tech-badge">State Machine</span>
+                        <span class="tech-badge">AI System</span>
+                    </div>
+                    
+                    <div class="text-white text-start p-4 mt-4" style="background: rgba(15, 15, 35, 0.8); border: 1px solid rgba(0, 255, 255, 0.3); border-radius: 15px; font-family: 'Courier New', monospace;">
+                        <h5 class="neon-text mb-3" data-translate="pu7_tech_structure">Project Structure</h5>
+                        <pre class="text-white mb-0" style="line-height: 1.8;">
+Project-Unit-7/
+├── Characters/           # Character sprites and animations
+├── TileMap/             # Level tiles and backgrounds
+├── assets/              # Game assets
+│   ├── Items/           # Weapons and items
+│   └── Joystick/        # Mobile UI textures
+├── Scripts/             # GDScript files
+│   ├── PlayerController.gd
+│   ├── character_manager.gd
+│   ├── NeuroBoneAI.gd
+│   ├── BreakableWall.gd
+│   └── MobileUI.gd
+└── project.godot        # Project configuration
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="py-5" style="background: #0a0a1f;">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-white mb-5" data-aos="fade-up">
+                <span class="neon-text" data-translate="pu7_screenshots_title">📸 Game Environment</span>
+            </h2>
+            <div class="screenshot-grid">
+                <div class="screenshot-item" data-aos="zoom-in" data-aos-delay="0">
+                    <img src="assets/PU7/tilemap/5199557562993414839_121.jpg" alt="Game Environment 1">
+                </div>
+                <div class="screenshot-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/PU7/tilemap/5199557562993414840_121.jpg" alt="Game Environment 2">
+                </div>
+                <div class="screenshot-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/PU7/tilemap/5199557562993414852_121.jpg" alt="Game Environment 3">
+                </div>
+                <div class="screenshot-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/PU7/tilemap/factory_TM03.png" alt="Factory Tilemap">
+                </div>
+                <div class="screenshot-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/PU7/tilemap/A continuation of a .png" alt="Level Design">
+                </div>
+                <div class="screenshot-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="assets/PU7/2.png" alt="Game Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-4 fw-bold mb-4" data-translate="pu7_cta_title">Ready for Action?</h2>
+                    <p class="lead mb-5" data-translate="pu7_cta_desc">
+                        Project Unite-7 is in active development with a demo preparation underway. Interested in partnerships or publishing opportunities?
+                    </p>
+                    <a href="index.html#contact" class="btn btn-lg px-5 py-3" style="background: linear-gradient(135deg, #00ffff, #0080ff); border: none; color: white; font-weight: bold;">
+                        <i class="bi bi-envelope me-2"></i><span data-translate="pu7_cta_btn">Get in Touch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="assets/VN_lOGO_ALT.png" alt="Versa Nova Logo" class="footer-logo-img">
+                        <div class="brand-text">
+                            <div class="brand-name">VERSA NOVA</div>
+                            <div class="brand-tagline">media & entertainment</div>
+                        </div>
+                    </div>
+                    <p data-translate="footer_desc">A media and technology company focused on social-first storytelling. Building products at the intersection of publishing, gaming, and creator economy.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-translate="footer_quick_links">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-translate="nav_home">Home</a></li>
+                        <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+                        <li><a href="index.html#projects" data-translate="nav_projects">Projects</a></li>
+                        <li><a href="index.html#partners" data-translate="nav_partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-translate="footer_company">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#contact" data-translate="footer_contact_us">Contact Us</a></li>
+                        <li><a href="#" data-translate="footer_careers">Careers</a></li>
+                        <li><a href="#" data-translate="footer_news">News</a></li>
+                        <li><a href="#" data-translate="footer_press">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 data-translate="footer_newsletter">Newsletter</h5>
+                    <p data-translate="footer_newsletter_desc">Subscribe to get the latest updates</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" data-translate-placeholder="footer_newsletter_placeholder" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0" data-translate="footer_copyright">&copy; 2026 Versa Nova. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="impressum.html" data-translate="footer_impressum">Impressum</a> | <a href="privacy.html" data-translate="footer_privacy">Privacy Policy</a> | <a href="#" id="openCookieSettings" data-translate="footer_cookies">Cookie Settings</a> | <a href="terms.html" data-translate="footer_terms">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4 data-translate="cookie_banner_title">We use cookies</h4>
+                <p data-translate="cookie_banner_text">We use cookies and similar technologies to improve your experience, analyze site usage, and assist with our marketing efforts. You can manage your preferences at any time.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-banner-btn cookie-banner-btn-primary" id="acceptAllBanner">
+                    <span data-translate="cookie_banner_accept">Accept All</span>
+                </button>
+                <button class="cookie-banner-btn cookie-banner-btn-secondary" id="rejectAllBanner">
+                    <span data-translate="cookie_banner_reject">Reject Non-Essential</span>
+                </button>
+                <button class="cookie-banner-btn cookie-banner-btn-outline" id="cookieSettingsBanner">
+                    <span data-translate="cookie_banner_settings">Cookie Settings</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h2 data-translate="cookie_title">Cookie Settings</h2>
+                <button class="cookie-close" id="closeCookieModal">&times;</button>
+            </div>
+            <div class="cookie-modal-body">
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_overview">Overview</h3>
+                    <p data-translate="cookie_overview_text">This site uses cookies and similar technologies to ensure basic functionality, improve your experience, and provide analytics and marketing features. Use the controls below to manage which categories you allow.</p>
+                </section>
+
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_categories">Cookie categories</h3>
+                    
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_essential">Essential</h4>
+                                <p data-translate="cookie_essential_desc">Required for site security, navigation, and basic functions. These cookies cannot be disabled.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieEssential" checked disabled>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_preferences">Preferences</h4>
+                                <p data-translate="cookie_preferences_desc">Remember language, display preferences, and other choices to improve your experience.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookiePreferences">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_analytics">Analytics</h4>
+                                <p data-translate="cookie_analytics_desc">Collect anonymous usage data to help us understand how the site is used and to improve performance.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieAnalytics">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_marketing">Marketing</h4>
+                                <p data-translate="cookie_marketing_desc">Enable personalized content, social media features, and advertising. These are only active with your consent.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieMarketing">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_choices">Your choices</h3>
+                    <div class="cookie-buttons">
+                        <button class="cookie-btn cookie-btn-primary" id="acceptAllCookies">
+                            <span data-translate="cookie_accept_all">Accept all</span>
+                        </button>
+                        <button class="cookie-btn cookie-btn-secondary" id="rejectAllCookies">
+                            <span data-translate="cookie_reject_all">Reject all non‑essential</span>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_change">How to change or withdraw consent</h3>
+                    <p data-translate="cookie_change_text">You can change your cookie settings at any time by clicking the Cookie Settings link in the footer or via your browser settings to block or delete cookies. Withdrawing consent will not affect processing already carried out while consent was valid.</p>
+                </section>
+
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_third_parties">Third parties and transfers</h3>
+                    <p data-translate="cookie_third_parties_text">Some cookies are set by third parties (analytics, social platforms, advertising partners). Where data is transferred outside the EEA, we rely on appropriate safeguards such as standard contractual clauses or adequacy decisions.</p>
+                </section>
+
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_contact">Contact</h3>
+                    <p data-translate="cookie_contact_text">For questions about cookies or data processing contact: info@versanova.de.</p>
+                </section>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="cookie-btn cookie-btn-primary" id="saveCookiePreferences">
+                    <span data-translate="cookie_save">Save Preferences</span>
+                </button>
+                <button class="cookie-btn cookie-btn-secondary" id="closeCookieModalFooter">
+                    <span data-translate="cookie_close">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <!-- Main JS -->
+    <script src="main.js"></script>
+    <!-- Translations -->
+    <script src="translations.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Netlify
+.netlify/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Node Modules (if needed in future)
+node_modules/
+
+# Log Files
+*.log
+npm-debug.log*
+
+# Temporary Files
+*.tmp
+*.temp
