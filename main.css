@@ -20,6 +20,11 @@
     box-sizing: border-box;
 }
 
+/* Override Bootstrap's text-muted */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--dark-bg);
