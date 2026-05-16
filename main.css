@@ -73,7 +73,7 @@ section {
     color: var(--text-light) !important;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
 }
 
 .navbar-logo-svg {
@@ -87,8 +87,9 @@ section {
 }
 
 .navbar-logo {
-    height: 55px;
+    height: 70px;
     width: auto;
+    margin-right: -25px;
     transition: all 0.3s ease;
 }
 
@@ -1361,13 +1362,14 @@ section {
 .footer-brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.3rem;
     margin-bottom: 1.5rem;
 }
 
 .footer-logo-img {
-    height: 60px;
+    height: 70px;
     width: auto;
+    margin-right: -25px;
 }
 
 .footer-logo {
