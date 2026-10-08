@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Recipy.AI | Versa Nova</title>
+    <meta name="title" content="Recipy.AI - AI-Powered Recipe Application">
+    <meta name="description" content="Full-stack AI recipe application with ingredient-based search, Google Gemini recipe generation, and cross-platform support for iOS, Android and Web.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://versanova.de/recipy-ai.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://versanova.de/recipy-ai.html">
+    <meta property="og:title" content="Recipy.AI - AI-Powered Recipe Application">
+    <meta property="og:description" content="Turn your ingredients into delicious recipes with AI. Cross-platform mobile and web app for smart recipe discovery.">
+    <meta property="og:image" content="https://versanova.de/assets/RecipyAI/logo_blue.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/VN_favicon.png">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        .project-hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #16a34a 0%, #f97316 55%, #fbbf24 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(22, 163, 74, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(251, 191, 36, 0.25) 0%, transparent 50%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .rai-icon-tile {
+            height: 70px;
+            width: 70px;
+            border-radius: 18px;
+            vertical-align: middle;
+            margin-right: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(22, 163, 74, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #16a34a, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 5px;
+            background: linear-gradient(135deg, #16a34a 0%, #f97316 100%);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #16a34a 0%, #f97316 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .architecture-diagram {
+            background: rgba(22, 163, 74, 0.1);
+            border-left: 4px solid #16a34a;
+            padding: 30px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 30px 0;
+        }
+
+        .rai-overview-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .rai-overview-card img {
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
+        }
+
+        .rai-screen-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .rai-screen-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(22, 163, 74, 0.4);
+        }
+
+        .rai-screen-card i {
+            font-size: 2.2rem;
+            color: #4ade80;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/VN-logo-navbar.png" alt="Versa Nova Logo" class="navbar-logo">
+                <div class="brand-text">
+                    <div class="brand-name">VERSA NOVA</div>
+                    <div class="brand-tagline">media & entertainment</div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-translate="nav_home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about" data-translate="nav_about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects" data-translate="nav_projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#partners" data-translate="nav_partners">Partners & Investors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact" data-translate="nav_contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-custom ms-lg-3" href="index.html#contact" data-translate="nav_cta">Get Started</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-translate"></i> <span id="currentLang">DE</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" width="20" alt="English"> English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('de')"><img src="https://flagcdn.com/w20/de.png" width="20" alt="Deutsch"> Deutsch</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="display-2 fw-bold mb-4" data-aos="fade-up">
+                    <img src="assets/RecipyAI/icon.png" alt="Recipy.AI" class="rai-icon-tile">Recipy.AI
+                </h1>
+                <p class="lead fs-3 mb-4" data-aos="fade-up" data-aos-delay="100" data-translate="rai_hero_subtitle">AI-Powered Recipe Discovery & Cooking App</p>
+                <p class="fs-5 mb-5" data-aos="fade-up" data-aos-delay="200" data-translate="rai_hero_tech">Built with Ionic React, Node.js, Express, MongoDB & Google Gemini AI</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <span class="badge bg-success fs-6 px-4 py-2 me-2" data-translate="rai_badge_dev">In Development</span>
+                    <span class="badge bg-warning text-dark fs-6 px-4 py-2" data-translate="rai_badge_crossplatform">Cross-Platform</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-5" style="background: #16213e; color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold mb-4">
+                        <span style="background: linear-gradient(135deg, #16a34a, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-translate="rai_what_title">
+                            What is Recipy.AI?
+                        </span>
+                    </h2>
+                    <p class="lead mb-4" data-translate="rai_what_lead">
+                        Recipy.AI is a cross-platform recipe app powered by AI that turns the ingredients you already have into delicious, personalized meals.
+                    </p>
+                    <p class="mb-3" data-translate="rai_what_desc1">
+                        Search recipes by the ingredients sitting in your kitchen, generate brand-new recipes instantly with Google Gemini AI, and follow a guided, step-by-step Cook Mode for a stress-free cooking experience.
+                    </p>
+                    <p class="mb-4" data-translate="rai_what_desc2">
+                        Beyond discovery, Recipy.AI learns from your ratings, cooking history and dietary preferences to recommend meals you will actually want to cook — available on iOS, Android and the Web.
+                    </p>
+                    <p class="mb-0">
+                        <strong data-translate="rai_status">Status:</strong> <span data-translate="rai_badge_dev">In Development</span> | <strong data-translate="rai_platform">Platform:</strong> Web, iOS & Android
+                    </p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="rai-overview-card">
+                        <img src="assets/RecipyAI/headerPic.png" alt="Recipy.AI cooking illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" style="background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-white mb-5" data-aos="fade-up" data-translate="rai_features_title">
+                ✨ Key Features
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature1_title">Ingredient-Based Search</h4>
+                        <p data-translate="rai_feature1_desc">Find recipes using the ingredients you already have at home</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature2_title">AI Recipe Generation</h4>
+                        <p data-translate="rai_feature2_desc">Create custom recipes instantly with Google Gemini AI</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature3_title">Cross-Platform</h4>
+                        <p data-translate="rai_feature3_desc">Works seamlessly on iOS, Android and the Web</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-list-check"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature4_title">Cook Mode</h4>
+                        <p data-translate="rai_feature4_desc">Step-by-step cooking guidance with a timer for every step</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature5_title">Save Favorites</h4>
+                        <p data-translate="rai_feature5_desc">Bookmark your favorite recipes for quick access anytime</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-magic"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature6_title">Personalized Recommendations</h4>
+                        <p data-translate="rai_feature6_desc">AI-powered suggestions tailored to your taste over time</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-funnel"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature7_title">Smart Filters</h4>
+                        <p data-translate="rai_feature7_desc">Filter recipes by diet, speed, cost and difficulty</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature8_title">Recipe Ratings</h4>
+                        <p data-translate="rai_feature8_desc">Rate and review recipes to help guide the community</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="feature-card text-white text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h4 class="mb-3" data-translate="rai_feature9_title">Cooking History</h4>
+                        <p data-translate="rai_feature9_desc">Keep track of every recipe you have cooked</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="py-5" style="background: #1a1a2e; color: white;">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5" data-aos="fade-up" data-translate="rai_tech_title">
+                🚀 Tech Stack
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <h4 class="mb-3" data-translate="rai_tech_frontend">Frontend</h4>
+                    <div class="mb-3">
+                        <span class="tech-badge">React 18</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">Ionic Framework 7</span>
+                        <span class="tech-badge">Vite 5</span>
+                        <span class="tech-badge">Capacitor 5</span>
+                        <span class="tech-badge">Axios</span>
+                        <span class="tech-badge">React Router</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <h4 class="mb-3" data-translate="rai_tech_backend">Backend</h4>
+                    <div class="mb-3">
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Express</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Mongoose</span>
+                        <span class="tech-badge">JWT</span>
+                        <span class="tech-badge">Google Gemini API</span>
+                        <span class="tech-badge">bcrypt</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <h4 class="mb-3" data-translate="rai_tech_devtools">Development Tools</h4>
+                    <div class="mb-3">
+                        <span class="tech-badge">ESLint</span>
+                        <span class="tech-badge">Nodemon</span>
+                        <span class="tech-badge">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-diagram" data-aos="zoom-in">
+                <h5 class="text-white mb-3" data-translate="rai_tech_architecture">Architecture</h5>
+                <pre class="text-white mb-0" style="line-height: 1.8;">
+Recepi_AI/
+├── backend/              # Node.js + Express + MongoDB backend
+├── frontend/             # Ionic React + TypeScript + Vite frontend
+├── assets/               # Design assets & wireframes
+└── API_DOCUMENTATION.md  # Complete API docs
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Screens -->
+    <section class="py-5" style="background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-white mb-5" data-aos="fade-up" data-translate="rai_screens_title">
+                📱 Application Screens
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="rai-screen-card text-white text-center">
+                        <i class="bi bi-house"></i>
+                        <h5 class="mb-2" data-translate="rai_screen1_title">Home</h5>
+                        <p class="small text-white-50 mb-0" data-translate="rai_screen1_desc">Today's suggestions, popular recipes and personalized AI picks</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rai-screen-card text-white text-center">
+                        <i class="bi bi-basket"></i>
+                        <h5 class="mb-2" data-translate="rai_screen2_title">Ingredients Selection</h5>
+                        <p class="small text-white-50 mb-0" data-translate="rai_screen2_desc">Pick common ingredients or add your own to find matching recipes</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rai-screen-card text-white text-center">
+                        <i class="bi bi-collection"></i>
+                        <h5 class="mb-2" data-translate="rai_screen3_title">Recipe Results</h5>
+                        <p class="small text-white-50 mb-0" data-translate="rai_screen3_desc">Browse and filter recipes by tags like fast, cheap, diet and healthy</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rai-screen-card text-white text-center">
+                        <i class="bi bi-journal-text"></i>
+                        <h5 class="mb-2" data-translate="rai_screen4_title">Recipe Detail</h5>
+                        <p class="small text-white-50 mb-0" data-translate="rai_screen4_desc">Full ingredients checklist, instructions, tips and a Cook Mode button</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="rai-screen-card text-white text-center">
+                        <i class="bi bi-play-circle"></i>
+                        <h5 class="mb-2" data-translate="rai_screen5_title">Cook Mode</h5>
+                        <p class="small text-white-50 mb-0" data-translate="rai_screen5_desc">Interactive step-by-step cooking with progress tracking and timers</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="rai-screen-card text-white text-center">
+                        <i class="bi bi-person-circle"></i>
+                        <h5 class="mb-2" data-translate="rai_screen6_title">Profile</h5>
+                        <p class="small text-white-50 mb-0" data-translate="rai_screen6_desc">Dietary preferences, saved recipes, cooking history and settings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-4 fw-bold mb-4" data-translate="rai_cta_title">Ready to Cook Smarter?</h2>
+                    <p class="lead mb-5" data-translate="rai_cta_desc">
+                        Recipy.AI is in active development and open for partnerships, investments, or integration opportunities.
+                    </p>
+                    <a href="index.html#contact" class="btn btn-light btn-lg px-5 py-3">
+                        <i class="bi bi-envelope me-2"></i><span data-translate="rai_cta_btn">Get in Touch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="assets/VN-logo-navbar.png" alt="Versa Nova Logo" class="footer-logo-img">
+                        <div class="brand-text">
+                            <div class="brand-name">VERSA NOVA</div>
+                            <div class="brand-tagline">media & entertainment</div>
+                        </div>
+                    </div>
+                    <p data-translate="footer_desc">A media and technology company focused on social-first storytelling. Building products at the intersection of publishing, gaming, and creator economy.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-translate="footer_quick_links">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html" data-translate="nav_home">Home</a></li>
+                        <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+                        <li><a href="index.html#projects" data-translate="nav_projects">Projects</a></li>
+                        <li><a href="index.html#partners" data-translate="nav_partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 data-translate="footer_company">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#contact" data-translate="footer_contact_us">Contact Us</a></li>
+                        <li><a href="#" data-translate="footer_careers">Careers</a></li>
+                        <li><a href="#" data-translate="footer_news">News</a></li>
+                        <li><a href="#" data-translate="footer_press">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 data-translate="footer_newsletter">Newsletter</h5>
+                    <p data-translate="footer_newsletter_desc">Subscribe to get the latest updates</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" data-translate-placeholder="footer_newsletter_placeholder" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0" data-translate="footer_copyright">&copy; 2026 Versa Nova. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="impressum.html" data-translate="footer_impressum">Impressum</a> | <a href="privacy.html" data-translate="footer_privacy">Privacy Policy</a> | <a href="#" id="openCookieSettings" data-translate="footer_cookies">Cookie Settings</a> | <a href="terms.html" data-translate="footer_terms">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4 data-translate="cookie_banner_title">We use cookies</h4>
+                <p data-translate="cookie_banner_text">We use cookies and similar technologies to improve your experience, analyze site usage, and assist with our marketing efforts. You can manage your preferences at any time.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-banner-btn cookie-banner-btn-primary" id="acceptAllBanner">
+                    <span data-translate="cookie_banner_accept">Accept All</span>
+                </button>
+                <button class="cookie-banner-btn cookie-banner-btn-secondary" id="rejectAllBanner">
+                    <span data-translate="cookie_banner_reject">Reject Non-Essential</span>
+                </button>
+                <button class="cookie-banner-btn cookie-banner-btn-outline" id="cookieSettingsBanner">
+                    <span data-translate="cookie_banner_settings">Cookie Settings</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h2 data-translate="cookie_title">Cookie Settings</h2>
+                <button class="cookie-close" id="closeCookieModal">&times;</button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- Overview -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_overview">Overview</h3>
+                    <p data-translate="cookie_overview_text">This site uses cookies and similar technologies to ensure basic functionality, improve your experience, and provide analytics and marketing features. Use the controls below to manage which categories you allow.</p>
+                </section>
+
+                <!-- Cookie Categories -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_categories">Cookie categories</h3>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_essential">Essential</h4>
+                                <p data-translate="cookie_essential_desc">Required for site security, navigation, and basic functions. These cookies cannot be disabled.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieEssential" checked disabled>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_preferences">Preferences</h4>
+                                <p data-translate="cookie_preferences_desc">Remember language, display preferences, and other choices to improve your experience.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookiePreferences">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_analytics">Analytics</h4>
+                                <p data-translate="cookie_analytics_desc">Collect anonymous usage data to help us understand how the site is used and to improve performance.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieAnalytics">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-category-header">
+                            <div>
+                                <h4 data-translate="cookie_marketing">Marketing</h4>
+                                <p data-translate="cookie_marketing_desc">Enable personalized content, social media features, and advertising. These are only active with your consent.</p>
+                            </div>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="cookieMarketing">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Your Choices -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_choices">Your choices</h3>
+                    <div class="cookie-buttons">
+                        <button class="cookie-btn cookie-btn-primary" id="acceptAllCookies">
+                            <span data-translate="cookie_accept_all">Accept all</span>
+                        </button>
+                        <button class="cookie-btn cookie-btn-secondary" id="rejectAllCookies">
+                            <span data-translate="cookie_reject_all">Reject all non‑essential</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- How to Change or Withdraw Consent -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_change">How to change or withdraw consent</h3>
+                    <p data-translate="cookie_change_text">You can change your cookie settings at any time by clicking the Cookie Settings link in the footer or via your browser settings to block or delete cookies. Withdrawing consent will not affect processing already carried out while consent was valid.</p>
+                </section>
+
+                <!-- Third Parties -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_third_parties">Third parties and transfers</h3>
+                    <p data-translate="cookie_third_parties_text">Some cookies are set by third parties (analytics, social platforms, advertising partners). Where data is transferred outside the EEA, we rely on appropriate safeguards such as standard contractual clauses or adequacy decisions.</p>
+                </section>
+
+                <!-- Contact -->
+                <section class="cookie-section">
+                    <h3 data-translate="cookie_contact">Contact</h3>
+                    <p data-translate="cookie_contact_text">For questions about cookies or data processing contact: info@versanova.de.</p>
+                </section>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="cookie-btn cookie-btn-primary" id="saveCookiePreferences">
+                    <span data-translate="cookie_save">Save Preferences</span>
+                </button>
+                <button class="cookie-btn cookie-btn-secondary" id="closeCookieModalFooter">
+                    <span data-translate="cookie_close">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <!-- Main JS -->
+    <script src="main.js"></script>
+    <!-- Translations -->
+    <script src="translations.js"></script>
+</body>
+</html>

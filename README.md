@@ -1,8 +1,7 @@
-# Versa Nova - Social-First Storytelling Platform
+# Versa Nova Media & Entertainment
+Berlin-based media and technology company developing digital products and interactive entertainment across apps, AI, publishing and games.
 
-![Versa Nova](https://img.shields.io/badge/Status-MVP%20Ready-success)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-purple)
-![License](https://img.shields.io/badge/License-MIT-blue)
+**Portfolio:** Recipy.AI · Booksy Boutique · Nonogram Sakura · Project Unite-7
 
 ## 🌟 About Versa Nova
 

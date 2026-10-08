@@ -23,37 +23,27 @@ document.addEventListener('DOMContentLoaded', function() {
 function initHeroTextAnimation() {
     const textElement = document.querySelector('.hero-text-animated');
     if (!textElement) return;
-    
-    // Make texts globally accessible for language switching
+
     window.heroTexts = [
-        'We build <span class="text-gradient">social-first storytelling platforms</span> where books, games, and communities grow together',
-        'Where <span class="text-gradient">readers become communities</span> and stories come alive',
-        'Transforming <span class="text-gradient">books into interactive experiences</span> for the digital age',
-        'Building the future of <span class="text-gradient">gaming and storytelling</span> hand in hand',
-        'Creating platforms where <span class="text-gradient">stories meet players</span> and magic happens'
+        'We build <span class="text-gradient">digital products</span> and interactive experiences.',
+        'From <span class="text-gradient">concept to launch</span>, we turn ideas into real products.',
+        'Building across <span class="text-gradient">apps, AI, publishing and games</span>.',
+        'Technology, design and creativity — <span class="text-gradient">built into products.</span>'
     ];
-    
+
     let currentText = 0;
-    
-    // Set initial text
     textElement.innerHTML = window.heroTexts[currentText];
     textElement.style.opacity = '1';
-    
+
     function changeText() {
-        // Fade out
         textElement.style.opacity = '0';
-        
         setTimeout(() => {
-            // Change text
             currentText = (currentText + 1) % window.heroTexts.length;
             textElement.innerHTML = window.heroTexts[currentText];
-            
-            // Fade in
             textElement.style.opacity = '1';
         }, 600);
     }
-    
-    // Change text every 5 seconds
+
     setInterval(changeText, 5000);
 }
 
@@ -367,11 +357,13 @@ if (closeCookieModalFooter) {
 }
 
 // Close modal if clicking outside
-cookieModal.addEventListener('click', function(e) {
-    if (e.target === cookieModal) {
-        closeCookieModalFunction();
-    }
-});
+if (cookieModal) {
+    cookieModal.addEventListener('click', function(e) {
+        if (e.target === cookieModal) {
+            closeCookieModalFunction();
+        }
+    });
+}
 
 // Save preferences button
 if (saveCookiePreferences) {
@@ -470,21 +462,25 @@ showCookieBanner();
 const backToTopBtn = document.getElementById('backToTop');
 
 // Show/hide button based on scroll position
-window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('show');
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
-});
+if (backToTopBtn) {
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+}
 
 // Scroll to top when button is clicked
-backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // ===========================
 // Contact Form Handling
