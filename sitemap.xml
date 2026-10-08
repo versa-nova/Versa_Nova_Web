@@ -35,5 +35,29 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
+  <!-- Booksy Boutique -->
+  <url>
+    <loc>https://versanova.de/booksy-boutique.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project Unite-7 -->
+  <url>
+    <loc>https://versanova.de/unite-7.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Recipy.AI -->
+  <url>
+    <loc>https://versanova.de/recipy-ai.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
 </urlset>
